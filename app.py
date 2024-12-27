@@ -81,7 +81,7 @@ try:
     save_response(subject, audi_level, desc, response, cursor, conn)
 
     # show output
-    show_response()
+    show_response(response)
 
 # show input error
 except ValueError as ve:
