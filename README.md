@@ -1,7 +1,7 @@
 
 # Course Content Generator using Hugging Face API and SQLite
 
-This repository contains a Python-based application to generate course content dynamically using the **Hugging Face Phi-3.5-mini-instruct** model. Users can input a subject, audience level, and a course description. The app generates a detailed table of contents and stores the results in a SQLite database.
+This repository contains a Python-based application to generate course content dynamically using the [**Hugging Face Phi-3.5-mini-instruct**](https://huggingface.co/microsoft/Phi-3.5-mini-instruct) model. Users can input a subject, audience level, and a course description. The app generates a detailed table of contents and stores the results in a SQLite database.
 
 ---
 
@@ -9,27 +9,6 @@ This repository contains a Python-based application to generate course content d
 - Generate a course outline based on user-provided input.
 - Save course details, prompts, and output in a SQLite database.
 - Retrieve and view the course content directly after generating it.
-
----
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/course-content-generator.git
-   cd course-content-generator
-   ```
-
-2. Set up a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
 ---
 
@@ -50,7 +29,7 @@ This repository contains a Python-based application to generate course content d
 ### Run the Application
 1. Start the program:
    ```bash
-   python main.py
+   python app.py
    ```
 
 2. Enter the required inputs when prompted:
@@ -107,8 +86,3 @@ This repository contains a Python-based application to generate course content d
 - [Hugging Face Hub](https://huggingface.co/docs/huggingface_hub)
 - SQLite3 (built-in with Python)
 - Python 3.7 or higher
-
----
-
-## License
-This project is licensed under the [MIT License](LICENSE).
