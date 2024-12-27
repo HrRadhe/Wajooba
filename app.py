@@ -2,16 +2,14 @@ from huggingface_hub import InferenceClient
 import sqlite3
 
 # set llm   
-def llm_request(messages, model="microsoft/Phi-3.5-mini-instruct", maxtokens=500):
-    # client = InferenceClient(api_key="note")
-    # completion = client.chat.completions.create(
-    #     model=model, 
-    #     messages=messages, 
-    #     max_tokens=maxtokens
-    # )
-    # print(completion.choices[0].message)
-    # return completion, completion.choices[0].message
-    return "", "result"
+def llm_request(messages, model="microsoft/Phi-3.5-mini-instruct", maxtokens=1000):
+    client = InferenceClient(api_key="your_api_key")
+    completion = client.chat.completions.create(
+        model=model, 
+        messages=messages, 
+        max_tokens=maxtokens
+    )
+    return completion, completion.choices[0].message.content
 
 # llm prompt
 def prompt(subject, audi_level, description):
@@ -29,7 +27,7 @@ def prompt(subject, audi_level, description):
 
 # create database
 def database():
-    connection = sqlite3.connect("test.db")
+    connection = sqlite3.connect("chat_hist.db")
     cursor = connection.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS course (
@@ -55,7 +53,7 @@ def save_response(sub, level, prompt, output, cursor, conn):
 
 # print response
 def show_response(response):
-    pass
+    print(response)
 
 # user input
 try:
@@ -81,6 +79,10 @@ try:
 
     # store in db
     save_response(subject, audi_level, desc, response, cursor, conn)
+
+    # show output
+    show_response()
+
 # show input error
 except ValueError as ve:
     print(f"Input Error: {ve}")
